@@ -1,4 +1,4 @@
-FROM node:8
+FROM node:16.10.0
 
 EXPOSE 8088/TCP
 

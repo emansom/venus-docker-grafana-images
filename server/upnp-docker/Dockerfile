@@ -1,4 +1,4 @@
-FROM node:8
+FROM node:16.10.0
 
 RUN npm install -g --unsafe-perm venus-docker-grafana-server
 
