@@ -4,10 +4,8 @@ build:
   local:
     push: false
   artifacts:
-  - image: docker.io/
-    context: bert
-  - image: ernie
-    context: ernie
+  - image: victronenergy/venus-docker:dev 
+    context: venus-
 deploy:
   docker:
     images: [bert, ernie]
