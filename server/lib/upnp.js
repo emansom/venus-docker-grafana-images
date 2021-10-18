@@ -1,5 +1,5 @@
 const Client = require('node-ssdp').Client
-const fetch = require('node-fetch')
+import fetch from 'node-fetch'
 const parseXml = require('xml2js').parseString
 const util = require('util')
 

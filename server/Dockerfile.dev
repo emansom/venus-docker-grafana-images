@@ -1,0 +1,16 @@
+FROM docker.io/node:16.10.0
+ENV NODE_ENV=development
+
+EXPOSE 8088/TCP
+
+WORKDIR /app
+
+COPY ["package.json", "package-lock.json*", "/app/"]
+
+RUN npm install
+
+COPY . /app/
+
+RUN mkdir /config
+
+CMD [ "node", "--experimental-specifier-resolution=node", "--experimental-loader=node-esm-loader", "/app/bin/venus-server.js", "--external-upnp" ]

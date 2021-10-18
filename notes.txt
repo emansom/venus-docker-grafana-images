@@ -1,0 +1,46 @@
+Node.js moet geupdate worden naar versie 12
+Node.js versie 8 word niet meer officieel ondersteund
+https://blog.risingstack.com/update-nodejs-8-end-of-life-no-support/
+https://nodejs.org/en/about/releases/
+
+
+Pas vanaf versie 12 uit 2019 word het nieuwe ISRG Let's Encrypt certificaat ondersteund.
+Versie 12 is EOL 30 april volgend jaar.
+
+Gelijk updaten naar laatste stable heeft de voorkeur?
+Versie 16 word ondersteund tot en met 30 April 2024.
+
+Toegang nodig tot Victron Energy Docker Hub en NPM
+
+Docker Hub toegang om nieuwe versie venus-docker-server te uploaden en GitHub action te configureren
+Zodat releasen automagisch werkt.
+Cross architecture docker image build in GitHub actions?
+
+NPM toegang om nieuwe versie venus-docker-grafana-server op NPM te releasen
+met engine.node "12" in de package.json\
+
+
+Hoe test ik of alles nog werkt naar behoren met Node.js 12?
+
+Stappenplan:
+  [done] Analyseren wat het probleem is
+    venus-docker-server gebruikt Node 8 als base image, deze base image is zeer oud en heeft
+    het ISRG root certificaat wat nodig is niet in de CA trust store.
+  [done] Test omgeving om het probleem te herproduceren
+    podman run --entrypoint /bin/bash -it docker.io/victronenergy/venus-docker-server:latest
+root@9063481924c1:/# wget https://ytec.nl
+--2021-10-05 10:53:19--  https://ytec.nl/
+Resolving ytec.nl (ytec.nl)... 89.188.17.84
+Connecting to ytec.nl (ytec.nl)|89.188.17.84|:443... connected.
+ERROR: The certificate of 'ytec.nl' is not trusted.
+ERROR: The certificate of 'ytec.nl' has expired.
+
+  [done] Oplossing bedenken
+    Dockerfiles en codebase updaten naar Node.js versie 16 (laatste stable release)
+    Lokaal testen
+    Nieuwe npm package uploaden voor UI
+    Nieuwe tag uploaden naar Docker Hub (niet :latest, enkel specifieke tag)
+    
+
+
+Setup delegate mail account in Geary to get mail notifications for support@ytec.nl account

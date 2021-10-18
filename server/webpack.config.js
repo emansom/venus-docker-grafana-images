@@ -1,8 +1,8 @@
-const webpack = require('webpack')
-const path = require('path')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+import webpack from 'webpack'
+import path from 'path'
+import ExtractTextPlugin from 'extract-text-webpack-plugin'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+import CopyWebpackPlugin from 'copy-webpack-plugin'
 
 const extractCSS = new ExtractTextPlugin('[name].fonts.css')
 const extractSCSS = new ExtractTextPlugin('[name].styles.css')

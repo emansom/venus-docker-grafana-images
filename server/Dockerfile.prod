@@ -1,0 +1,12 @@
+FROM docker.io/node:16.10.0
+ENV NODE_ENV=production
+
+EXPOSE 8088/TCP
+
+WORKDIR /app
+
+RUN npm install --production -g --unsafe-perm venus-docker-grafana-server
+
+RUN mkdir /config
+
+CMD [ "venus-server", "--external-upnp" ]
