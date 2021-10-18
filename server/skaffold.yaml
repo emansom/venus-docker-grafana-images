@@ -4,8 +4,8 @@ build:
   local:
     push: false
   artifacts:
-  - image: victronenergy/venus-docker:dev 
-    context: venus-
+  - image: victronenergy/venus-admin-ui:dev 
+    context: venus-admin-ui
 deploy:
   docker:
-    images: [bert, ernie]
+    images: [venus-admin-ui]
