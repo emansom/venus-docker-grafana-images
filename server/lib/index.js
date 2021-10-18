@@ -12,7 +12,7 @@ const compare = require('tsscmp')
 
 const logMessages = []
 
-export class Server {
+export default class Server {
     constructor(opts) {
         process.on('SIGINT', function() {
             process.exit()
